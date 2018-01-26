@@ -1,4 +1,4 @@
-﻿@model Portal.CMS.Web.Areas.Admin.ViewModels.ThemeManager.UpsertViewModel
+﻿@model Portal.CMS.Web.Areas.ThemeEditor.ViewModels.Manage.UpsertViewModel
 @{
     Layout = "";
 
@@ -11,7 +11,7 @@
 @Scripts.Render("~/Plugins/JQueryUI/Scripts")
 @Scripts.Render("~/Resources/JavaScript/Plugins/Sliders")
 
-@using (Html.BeginForm("Edit", "ThemeManager", FormMethod.Post))
+@using (Html.BeginForm("Edit", "Manage", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -119,7 +119,7 @@
     </div>
 
     <div class="footer">
-        <button class="btn primary"><span class="fa fa-check"></span><span class="hidden-xs">Edit Theme</span></button>
+        <button class="btn primary"><span class="fa fa-check"></span><span class="hidden-xs">Save</span></button>
         <button class="btn" data-dismiss="modal"><span class="fa fa-times"></span><span class="hidden-xs">Cancel</span></button>
     </div>
 }

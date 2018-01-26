@@ -59,11 +59,6 @@ namespace Portal.CMS.Web.Areas.Admin.Controllers
                     model.Categories.Add(ExitButton());
                     break;
 
-                case QuickAccessPageType.ThemeManager_Admin:
-                    model.Categories.Add(new QuickAccessCategory { Icon = "fa fa-plus", DesktopText = "Add Theme", MobileText = "Add Theme", CssClass = "act", LaunchModal = true, Link = Url.Action("Create", "ThemeManager", new { area = nameof(Admin) }) });
-                    model.Categories.Add(ExitButton());
-                    break;
-
                 case QuickAccessPageType.PageManager_Admin:
                     model.Categories.Add(new QuickAccessCategory { Icon = "fa fa-plus", DesktopText = "Add Page", MobileText = "Add Page", CssClass = "act", LaunchModal = true, Link = Url.Action("Create", "PageManager", new { area = nameof(Admin) }) });
                     model.Categories.Add(ExitButton());
@@ -123,7 +118,7 @@ namespace Portal.CMS.Web.Areas.Admin.Controllers
             if (isAdmin)
             {
                 moreContent.Actions.Add(new QuickAccessAction { Icon = "fa fa-list", Text = "Page Manager", JavaScript = "QuickAccess.TogglePanel('pages-panel');" });
-                moreContent.Actions.Add(new QuickAccessAction { Icon = "fa fa-paint-brush", Text = "Theme Manager", JavaScript = "QuickAccess.TogglePanel('theme-manager-panel');" });
+                moreContent.Actions.Add(new QuickAccessAction { Icon = "fa fa-paint-brush", Text = "Theme Editor", JavaScript = "QuickAccess.TogglePanel('theme-manager-panel');" });
             }
 
             if (isEditor)

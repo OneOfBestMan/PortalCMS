@@ -1,8 +1,8 @@
 ﻿using Portal.CMS.Entities.Entities;
 
-namespace Portal.CMS.Web.Areas.PageBuilder.ViewModels.Theme
+namespace Portal.CMS.Web.Areas.ThemeEditor.ViewModels.Render
 {
-    public class ThemeViewModel
+    public class RenderViewModel
     {
         public CustomTheme Theme { get; set; }
     }

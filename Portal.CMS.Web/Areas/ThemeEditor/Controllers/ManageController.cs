@@ -1,40 +1,21 @@
-﻿using Portal.CMS.Entities.Entities;
-using Portal.CMS.Services.Themes;
+﻿using Portal.CMS.Services.Themes;
 using Portal.CMS.Web.Architecture.ActionFilters;
-using Portal.CMS.Web.Areas.Admin.ViewModels.ThemeManager;
+using Portal.CMS.Web.Areas.ThemeEditor.ViewModels.Manage;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace Portal.CMS.Web.Areas.Admin.Controllers
+namespace Portal.CMS.Web.Areas.ThemeEditor.Controllers
 {
-    public class ThemeManagerController : Controller
+    public class ManageController : Controller
     {
-        #region Dependencies
-
         private readonly IThemeService _themeService;
         private readonly IFontService _fontService;
 
-        public ThemeManagerController(IThemeService themeService, IFontService fontService)
+        public ManageController(IThemeService themeService, IFontService fontService)
         {
             _themeService = themeService;
             _fontService = fontService;
-        }
-
-        #endregion Dependencies
-
-        [AdminFilter(ActionFilterResponseType.Page)]
-        public async Task<ActionResult> Index()
-        {
-            var model = new ThemeViewModel
-            {
-                Themes = await _themeService.GetAsync(),
-                Fonts = await _fontService.GetAsync()
-            };
-
-            return View(model);
         }
 
         [HttpGet, AdminFilter(ActionFilterResponseType.Modal)]
@@ -129,22 +110,7 @@ namespace Portal.CMS.Web.Areas.Admin.Controllers
         {
             await _themeService.DeleteAsync(themeId);
 
-            return RedirectToAction(nameof(Index));
-        }
-
-        [HttpGet, AdminFilter(ActionFilterResponseType.Page)]
-        public async Task<ActionResult> AppDrawer()
-        {
-            var model = new AppDrawerViewModel
-            {
-                Themes = await _themeService.GetAsync(),
-                Fonts = new List<Font>()
-            };
-
-            model.Fonts.AddRange(model.Themes.Select(x => x.TextFont));
-            model.Fonts.AddRange(model.Themes.Select(x => x.TitleFont));
-
-            return View("_AppDrawer", model);
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

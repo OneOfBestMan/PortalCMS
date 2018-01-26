@@ -246,7 +246,6 @@
     <Compile Include="Areas\Admin\Controllers\QuickAccessController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleManagerController.cs" />
     <Compile Include="Areas\Settings\Controllers\ManageController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ThemeManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserManagerController.cs" />
     <Compile Include="Architecture\Helpers\EmailHelper.cs" />
     <Compile Include="Architecture\Helpers\MenuHelper.cs" />
@@ -297,9 +296,9 @@
     <Compile Include="Areas\Admin\ViewModels\RoleManager\CreateViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\RoleManager\EditViewModel.cs" />
     <Compile Include="Areas\Settings\ViewModels\Manage\SettingsViewModel.cs" />
-    <Compile Include="Areas\Admin\ViewModels\ThemeManager\DefaultViewModel.cs" />
-    <Compile Include="Areas\Admin\ViewModels\ThemeManager\ThemeViewModel.cs" />
-    <Compile Include="Areas\Admin\ViewModels\ThemeManager\UpsertViewModel.cs" />
+    <Compile Include="Areas\ThemeEditor\Controllers\RenderController.cs" />
+    <Compile Include="Areas\ThemeEditor\ViewModels\Manage\DefaultViewModel.cs" />
+    <Compile Include="Areas\ThemeEditor\ViewModels\Manage\UpsertViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserManager\CreateViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserManager\DeleteViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserManager\DetailsViewModel.cs" />
@@ -312,7 +311,6 @@
     <Compile Include="Areas\PageBuilder\Controllers\PageController.cs" />
     <Compile Include="Areas\PageBuilder\Controllers\ComponentController.cs" />
     <Compile Include="Areas\PageBuilder\Controllers\SectionController.cs" />
-    <Compile Include="Areas\PageBuilder\Controllers\ThemeController.cs" />
     <Compile Include="Areas\Admin\ViewModels\PageManager\AppDrawerViewModel.cs" />
     <Compile Include="Areas\PageBuilder\ViewModels\Component\AddViewModel.cs" />
     <Compile Include="Areas\PageBuilder\ViewModels\Component\ContainerViewModel.cs" />
@@ -321,13 +319,16 @@
     <Compile Include="Areas\PageBuilder\ViewModels\Section\CloneViewModel.cs" />
     <Compile Include="Areas\PageBuilder\ViewModels\Section\RestoreViewModel.cs" />
     <Compile Include="Areas\PageBuilder\ViewModels\Section\EditMarkupViewModel.cs" />
-    <Compile Include="Areas\Admin\ViewModels\ThemeManager\AppDrawerViewModel.cs" />
+    <Compile Include="Areas\ThemeEditor\ViewModels\AppDrawer\AppDrawerViewModel.cs" />
     <Compile Include="Areas\PageBuilder\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Profile\Controllers\WidgetsController.cs" />
     <Compile Include="Areas\Profile\ProfileAreaRegistration.cs" />
     <Compile Include="Areas\Settings\SettingsAreaRegistration.cs" />
+    <Compile Include="Areas\ThemeEditor\Controllers\AppDrawerController.cs" />
+    <Compile Include="Areas\ThemeEditor\Controllers\ManageController.cs" />
+    <Compile Include="Areas\ThemeEditor\ThemeEditorAreaRegistration.cs" />
     <Compile Include="ViewModels\Shared\PaginationViewModel.cs" />
-    <Compile Include="Areas\PageBuilder\ViewModels\Theme\ThemeViewModel.cs" />
+    <Compile Include="Areas\ThemeEditor\ViewModels\Render\RenderViewModel.cs" />
     <Compile Include="Areas\Blog\ViewModels\Widgets\PostsWidgetViewModel.cs" />
     <Compile Include="Architecture\DependencyResolution\ControllerConvention.cs" />
     <Compile Include="Architecture\DependencyResolution\DefaultRegistry.cs" />
@@ -355,8 +356,6 @@
     <Content Include="Areas\Admin\Content\Images\icon-media.png" />
     <Content Include="Areas\Admin\Content\Images\icon-dashboard.png" />
     <Content Include="Areas\Admin\Content\Images\icon-reports.png" />
-    <Content Include="Areas\Admin\Content\Images\icon-settings.png" />
-    <Content Include="Areas\Admin\Content\Images\icon-thememanager.png" />
     <Content Include="Areas\Admin\Content\Images\icon-users.png" />
     <Content Include="Areas\Admin\Content\Images\profile-image-male.png" />
     <Content Include="Areas\Authentication\Content\Images\reset-background-image.jpg" />
@@ -598,22 +597,19 @@
     <Content Include="Areas\Admin\Views\PageManager\_AppDrawer.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\ThemeManager\_AppDrawer.cshtml" />
+    <Content Include="Areas\ThemeEditor\Views\AppDrawer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\MediaManager\_UploadFont.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\ThemeManager\_Create.cshtml" />
+    <Content Include="Areas\ThemeEditor\Views\Manage\_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\ThemeManager\Index.cshtml" />
+    <Content Include="Areas\ThemeEditor\Views\Manage\_Default.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\ThemeManager\_Default.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Views\ThemeManager\_Edit.cshtml" />
+    <Content Include="Areas\ThemeEditor\Views\Manage\_Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Fonts\Thin_Line_Font.otf" />
@@ -661,7 +657,7 @@
     <Content Include="Content\Fonts\AllerDisplay.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\PageBuilder\Views\Theme\Render.cscss" />
+    <Content Include="Areas\ThemeEditor\Views\Render\Index.cscss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\AnalyticManager\LogEntries.cshtml" />
@@ -768,6 +764,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Authentication\Views\SingleSignOn\" />
+    <Folder Include="Areas\PageBuilder\Views\Theme\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\PageBuilder\Views\Page\Editor.cshtml" />
@@ -780,6 +777,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Settings\Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\ThemeEditor\Views\web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

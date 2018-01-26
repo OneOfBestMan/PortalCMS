@@ -1,4 +1,4 @@
-﻿@model Portal.CMS.Web.Areas.Admin.ViewModels.ThemeManager.UpsertViewModel
+﻿@model Portal.CMS.Web.Areas.ThemeEditor.ViewModels.Manage.UpsertViewModel
 @{
     Layout = "";
 
@@ -11,7 +11,7 @@
 @Scripts.Render("~/Plugins/JQueryUI/Scripts")
 @Scripts.Render("~/Resources/JavaScript/Plugins/Sliders")
 
-@using (Html.BeginForm("Create", "ThemeManager", FormMethod.Post))
+@using (Html.BeginForm("Create", "Manage", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 

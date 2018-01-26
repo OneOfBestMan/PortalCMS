@@ -1,12 +1,12 @@
 ﻿using Portal.CMS.Entities.Entities;
 using System.Collections.Generic;
 
-namespace Portal.CMS.Web.Areas.Admin.ViewModels.ThemeManager
+namespace Portal.CMS.Web.Areas.ThemeEditor.ViewModels.AppDrawer
 {
-    public class ThemeViewModel
+    public class AppDrawerViewModel
     {
         public IEnumerable<CustomTheme> Themes { get; set; }
 
-        public IEnumerable<Font> Fonts { get; set; }
+        public List<Font> Fonts { get; set; }
     }
 }

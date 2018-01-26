@@ -1,4 +1,4 @@
-﻿namespace Portal.CMS.Web.Areas.Admin.ViewModels.ThemeManager
+﻿namespace Portal.CMS.Web.Areas.ThemeEditor.ViewModels.Manage
 {
     public class DefaultViewModel
     {
