@@ -1,7 +1,7 @@
 ﻿using Portal.CMS.Web.Architecture.Helpers;
 using System.Web.Optimization;
 
-namespace Portal.CMS.Web
+namespace Portal.CMS.Web.Architecture.Bundles
 {
     public static class BundleConfig
     {

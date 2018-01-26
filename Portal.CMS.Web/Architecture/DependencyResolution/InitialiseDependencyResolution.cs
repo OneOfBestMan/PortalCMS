@@ -1,17 +1,16 @@
-using Portal.CMS.Web.App_Start;
-
+using Portal.CMS.Web.Architecture.DependencyResolution;
 using WebActivatorEx;
 
-[assembly: PreApplicationStartMethod(typeof(StructuremapMvc), "Start")]
-[assembly: ApplicationShutdownMethod(typeof(StructuremapMvc), "End")]
+[assembly: PreApplicationStartMethod(typeof(InitialiseDependencyResolution), "Start")]
+[assembly: ApplicationShutdownMethod(typeof(InitialiseDependencyResolution), "End")]
 
-namespace Portal.CMS.Web.App_Start
+namespace Portal.CMS.Web.Architecture.DependencyResolution
 {
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Portal.CMS.Web.DependencyResolution;
     using System.Web.Mvc;
 
-    public static class StructuremapMvc
+    public static class InitialiseDependencyResolution
     {
         #region Public Properties
 

@@ -4,7 +4,7 @@ using Portal.CMS.Web.DependencyResolution;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Portal.CMS.Web
+namespace Portal.CMS.Web.Architecture.Routes
 {
     public static class RouteConfig
     {

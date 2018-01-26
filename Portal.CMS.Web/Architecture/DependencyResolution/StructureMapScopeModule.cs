@@ -1,6 +1,6 @@
 namespace Portal.CMS.Web.DependencyResolution
 {
-    using Portal.CMS.Web.App_Start;
+    using Portal.CMS.Web.Architecture.DependencyResolution;
     using StructureMap.Web.Pipeline;
     using System.Web;
 
@@ -14,11 +14,11 @@ namespace Portal.CMS.Web.DependencyResolution
 
         public void Init(HttpApplication context)
         {
-            context.BeginRequest += (sender, e) => StructuremapMvc.StructureMapDependencyScope.CreateNestedContainer();
+            context.BeginRequest += (sender, e) => InitialiseDependencyResolution.StructureMapDependencyScope.CreateNestedContainer();
             context.EndRequest += (sender, e) =>
             {
                 HttpContextLifecycle.DisposeAndClearAll();
-                StructuremapMvc.StructureMapDependencyScope.DisposeNestedContainer();
+                InitialiseDependencyResolution.StructureMapDependencyScope.DisposeNestedContainer();
             };
         }
 
