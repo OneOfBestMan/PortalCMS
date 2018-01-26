@@ -6,7 +6,6 @@ var PageBuilder = {
     Initialise: {
         Editor: function () {
             PageBuilder.Initialise.SectionControls();
-            PageBuilder.Initialise.PartialControls();
 
             for (var i = tinymce.editors.length - 1; i > -1; i--) {
                 var ed_id = tinymce.editors[i].id;
@@ -93,22 +92,6 @@ var PageBuilder = {
                 sectionButtonsMarkup = sectionButtonsMarkup.replace(/<associationId>/g, associationId);
 
                 $(this).append(sectionButtonsMarkup);
-            });
-        },
-        PartialControls: function () {
-            $('.partial-wrapper .action-container').remove();
-
-            var partialButtonsTemplate =
-                '<div class="action-container absolute">' +
-                '<a class="action launch-popover" data-association="<associationId>" title="Restrict Access" data-action="Restrict Access" data-placement="bottom" data-trigger="click" data-html="true" data-content="<spinner>" data-url="/PageBuilder/Association/EditAccess?pageAssociationId=<associationId>"><span class="fa fa-lock"></span></a>' +
-                '<a class="action launch-popover" data-association="<associationId>" title="Delete Partial" data-action="Delete Partial" data-placement="bottom" data-trigger="click" data-html="true" data-content="<spinner>" data-url="/PageBuilder/Association/Delete?pageAssociationId=<associationId>"><span class="fa fa-trash"></span></a>' +
-                '</div>';
-
-            $(".partial-wrapper").each(function (index) {
-                var associationId = $(this).attr("data-association");
-                partialButtonsMarkup = partialButtonsTemplate.replace(/<associationId>/g, associationId);
-
-                $(this).append(partialButtonsMarkup);
             });
         },
         Droppables: function () {

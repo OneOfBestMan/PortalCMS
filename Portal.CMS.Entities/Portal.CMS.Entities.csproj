@@ -75,7 +75,6 @@
     <Compile Include="Entities\Page.cs" />
     <Compile Include="Entities\PageComponentType.cs" />
     <Compile Include="Entities\PageAssociation.cs" />
-    <Compile Include="Entities\PagePartial.cs" />
     <Compile Include="Entities\PageSectionBackup.cs" />
     <Compile Include="Enumerators\PageSectionTypeCategory.cs" />
     <Compile Include="Enumerators\PageComponentTypeCategory.cs" />
@@ -233,6 +232,10 @@
     <Compile Include="Migrations\201708101946158_UpdateExistingAdminAndEditorRoles.Designer.cs">
       <DependentUpon>201708101946158_UpdateExistingAdminAndEditorRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801261920382_RemovePagePartialEntity.cs" />
+    <Compile Include="Migrations\201801261920382_RemovePagePartialEntity.Designer.cs">
+      <DependentUpon>201801261920382_RemovePagePartialEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PortalEntityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -356,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708101946158_UpdateExistingAdminAndEditorRoles.resx">
       <DependentUpon>201708101946158_UpdateExistingAdminAndEditorRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801261920382_RemovePagePartialEntity.resx">
+      <DependentUpon>201801261920382_RemovePagePartialEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

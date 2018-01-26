@@ -7,12 +7,6 @@ namespace Portal.CMS.Web.Areas.PageBuilder.ViewModels.Section
     {
         public int PageId { get; set; }
 
-        #region Enumerable Properties
-
         public IEnumerable<PageSectionType> SectionTypeList { get; set; }
-
-        public IEnumerable<PagePartial> PartialList { get; set; }
-
-        #endregion Enumerable Properties
     }
 }

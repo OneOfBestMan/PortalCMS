@@ -41,8 +41,6 @@ namespace Portal.CMS.Web.Areas.PageBuilder.Controllers
             {
                 return View("/Areas/PageBuilder/Views/Page/Guest.cshtml", currentPage);
             }
-
-            
         }
 
         public async Task<ActionResult> Analytic(int pageId, string referrer)

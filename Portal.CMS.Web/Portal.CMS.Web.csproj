@@ -254,7 +254,6 @@
     <Compile Include="Areas\Forms\FormsAreaRegistration.cs" />
     <Compile Include="Areas\Forms\ViewModels\ContactWidgets\SubmitMessageViewModel.cs" />
     <Compile Include="Areas\PageBuilder\Controllers\AssociationController.cs" />
-    <Compile Include="Areas\PageBuilder\Controllers\PartialController.cs" />
     <Compile Include="Areas\PageBuilder\ViewModels\Association\EditAccessViewModel.cs" />
     <Compile Include="Areas\PageBuilder\ViewModels\Section\EditBackgroundImageViewModel.cs" />
     <Compile Include="Areas\Profile\Controllers\ManageController.cs" />

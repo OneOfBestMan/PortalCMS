@@ -1,4 +1,4 @@
-﻿.section-wrapper, section, .partial-wrapper
+﻿.section-wrapper, section
 {
     position: relative;
 }
@@ -85,14 +85,14 @@ table
     border: 1px dashed white;
 }
 
-    #page-wrapper.zoom .section-wrapper section, #page-wrapper.zoom .partial-wrapper section
+    #page-wrapper.zoom .section-wrapper section
     {
         -ms-zoom: 0.3;
         zoom: 0.3;
         pointer-events: none;
     }
 
-    #page-wrapper.zoom .section-wrapper .action-container, #page-wrapper.zoom .partial-wrapper .action-container
+    #page-wrapper.zoom .section-wrapper .action-container
     {
         display: none;
     }

@@ -58,8 +58,6 @@ namespace Portal.CMS.Entities
 
         public virtual DbSet<PageSection> PageSections { get; set; }
 
-        public virtual DbSet<PagePartial> PagePartials { get; set; }
-
         public virtual DbSet<PageSectionBackup> PageSectionBackups { get; set; }
 
         public virtual DbSet<PageSectionType> PageSectionTypes { get; set; }

@@ -16,7 +16,6 @@
             success: function ()
             {
                 $('.section-wrapper[data-association=' + @Model + ']').slideUp();
-                $('.partial-wrapper[data-association=' + @Model + ']').slideUp();
                 EditablePopover.Destroy();
             },
             error: function ()

@@ -16,9 +16,6 @@ namespace Portal.CMS.Entities.Entities
         [ForeignKey("PageSection")]
         public int? PageSectionId { get; set; }
 
-        [ForeignKey("PagePartial")]
-        public int? PagePartialId { get; set; }
-
         [Required]
         public int PageAssociationOrder { get; set; }
 
@@ -27,8 +24,6 @@ namespace Portal.CMS.Entities.Entities
         public virtual Page Page { get; set; }
 
         public virtual PageSection PageSection { get; set; }
-
-        public virtual PagePartial PagePartial { get; set; }
 
         public virtual ICollection<PageAssociationRole> PageAssociationRoles { get; set; }
 

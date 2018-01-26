@@ -48,7 +48,7 @@ namespace Portal.CMS.Entities.Seed
             // REPLACE: Updated Templates
             foreach (var existingSection in context.PageSectionTypes.ToList())
             {
-                 var matchedTemplate = newSections.FirstOrDefault(x => x.PageSectionTypeName == existingSection.PageSectionTypeName);
+                var matchedTemplate = newSections.FirstOrDefault(x => x.PageSectionTypeName == existingSection.PageSectionTypeName);
 
                 if (matchedTemplate == null || existingSection.PageSectionTypeBody != matchedTemplate.PageSectionTypeBody || existingSection.PageSectionTypeOrder != matchedTemplate.PageSectionTypeOrder)
                 {

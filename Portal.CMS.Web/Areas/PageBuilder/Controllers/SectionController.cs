@@ -49,7 +49,6 @@ namespace Portal.CMS.Web.Areas.PageBuilder.Controllers
             {
                 PageId = pageId,
                 SectionTypeList = await _sectionService.GetSectionTypesAsync(),
-                PartialList = await _associationService.GetAsync()
             };
 
             return View("_Add", model);

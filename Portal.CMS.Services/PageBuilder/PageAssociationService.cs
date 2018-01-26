@@ -10,8 +10,6 @@ namespace Portal.CMS.Services.PageBuilder
 {
     public interface IPageAssociationService
     {
-        Task<List<PagePartial>> GetAsync();
-
         Task<PageAssociation> GetAsync(int pageAssociationId);
 
         Task DeleteAsync(int pageAssociationId);
@@ -36,19 +34,6 @@ namespace Portal.CMS.Services.PageBuilder
 
         #endregion Dependencies
 
-        public async Task<List<PagePartial>> GetAsync()
-        {
-            var existingPartialList = await _context.PagePartials.ToListAsync();
-
-            var distinctPartialList = new List<PagePartial>();
-
-            foreach (var partial in existingPartialList)
-                if (!distinctPartialList.Any(x => x.RouteArea == partial.RouteArea && x.RouteController == partial.RouteController && x.RouteAction == partial.RouteAction))
-                    distinctPartialList.Add(partial);
-
-            return distinctPartialList;
-        }
-
         public async Task<PageAssociation> GetAsync(int pageAssociationId)
         {
             var pageAssociation = await _context.PageAssociations.SingleOrDefaultAsync(pa => pa.PageAssociationId == pageAssociationId);
@@ -68,15 +53,6 @@ namespace Portal.CMS.Services.PageBuilder
                     var pageSection = await _context.PageSections.SingleOrDefaultAsync(x => x.PageSectionId == pageAssociation.PageSectionId);
 
                     _context.PageSections.Remove(pageSection);
-                }
-            }
-            else if (pageAssociation.PagePartial != null)
-            {
-                if (!_context.PageAssociations.Any(x => x.PagePartialId == pageAssociation.PagePartialId))
-                {
-                    var pagePartial = await _context.PagePartials.SingleOrDefaultAsync(x => x.PagePartialId == pageAssociation.PagePartialId);
-
-                    _context.PagePartials.Remove(pagePartial);
                 }
             }
 
