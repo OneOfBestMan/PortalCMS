@@ -1,20 +1,20 @@
 ﻿using Portal.CMS.Services.Settings;
 using Portal.CMS.Web.Architecture.ActionFilters;
 using Portal.CMS.Web.Architecture.Helpers;
-using Portal.CMS.Web.Areas.Admin.ViewModels.SettingManager;
+using Portal.CMS.Web.Areas.Settings.ViewModels.Manage;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace Portal.CMS.Web.Areas.Admin.Controllers
+namespace Portal.CMS.Web.Areas.Settings.Controllers
 {
     [AdminFilter(ActionFilterResponseType.Page)]
-    public class SettingManagerController : Controller
+    public class ManageController : Controller
     {
         #region Dependencies
 
         private readonly ISettingService _settingService;
 
-        public SettingManagerController(ISettingService settingService)
+        public ManageController(ISettingService settingService)
         {
             _settingService = settingService;
         }
@@ -22,9 +22,9 @@ namespace Portal.CMS.Web.Areas.Admin.Controllers
         #endregion Dependencies
 
         [HttpGet]
-        public ActionResult Setup()
+        public ActionResult Index()
         {
-            var model = new SetupViewModel
+            var model = new SettingsViewModel
             {
                 WebsiteName = SettingHelper.Get("Website Name"),
                 WebsiteDescription = SettingHelper.Get("Description Meta Tag"),
@@ -37,14 +37,14 @@ namespace Portal.CMS.Web.Areas.Admin.Controllers
             if (string.IsNullOrWhiteSpace(model.EmailFromAddress))
                 model.EmailFromAddress = UserHelper.EmailAddress;
 
-            return View("_Setup", model);
+            return View(model);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Setup(SetupViewModel model)
+        public async Task<ActionResult> Index(SettingsViewModel model)
         {
             if (!ModelState.IsValid)
-                return View("_Setup", model);
+                return View(model);
 
             await _settingService.EditAsync("Website Name", model.WebsiteName);
             Session.Remove("Setting-Website Name");

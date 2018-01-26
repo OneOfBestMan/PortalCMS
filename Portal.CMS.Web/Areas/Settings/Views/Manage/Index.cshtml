@@ -1,4 +1,4 @@
-﻿@model Portal.CMS.Web.Areas.Admin.ViewModels.SettingManager.SetupViewModel
+﻿@model Portal.CMS.Web.Areas.Settings.ViewModels.Manage.SettingsViewModel
 @{
     Layout = "";
 }
@@ -15,7 +15,7 @@
     }
 </style>
 
-@using (Html.BeginForm("Setup", "SettingManager", FormMethod.Post))
+@using (Html.BeginForm("Index", "Manage", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 

@@ -139,10 +139,11 @@ namespace Portal.CMS.Web.Areas.Admin.Controllers
             return new QuickAccessCategory
             {
                 Icon = "fa fa-cog",
-                DesktopText = string.Empty,
-                MobileText = string.Empty,
+                DesktopText = "Settings",
+                MobileText = "Settings",
                 CssClass = "admin",
-                Link = Url.Action("Index", "Dashboard", new { area = nameof(Admin) })
+                Link = Url.Action("Index", "Manage", new { area = "Settings" }),
+                LaunchModal = true
             };
         }
 

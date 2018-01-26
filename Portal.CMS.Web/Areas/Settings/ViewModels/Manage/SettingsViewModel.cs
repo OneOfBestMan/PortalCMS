@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Portal.CMS.Web.Areas.Admin.ViewModels.SettingManager
+namespace Portal.CMS.Web.Areas.Settings.ViewModels.Manage
 {
-    public class SetupViewModel
+    public class SettingsViewModel
     {
         [Required]
         [DisplayName("Website Name")]

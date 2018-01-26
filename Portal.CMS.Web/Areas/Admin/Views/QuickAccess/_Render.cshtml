@@ -3,10 +3,27 @@
 <div class="page-admin-wrapper admin-wrapper animated zoomInUp">
     @foreach (var category in Model.Categories)
     {
-        <a href="@category.Link" class="button @category.CssClass @(category.LaunchModal ? "launch-modal" : "")" data-toggle="popover" data-placement="top" data-trigger="click" data-title="@(!string.IsNullOrWhiteSpace(category.Link) ? category.DesktopText : "")" data-container="body"><span class="click-through"><span class="@category.Icon" style="float: left;"></span><span class="hidden-xs visible-sm visible-md visible-lg" style="float: left;">@category.DesktopText</span><span class="visible-xs hidden-sm hidden-md hidden-lg" style="float: left;">@category.MobileText</span></span></a>
+        if (category.Actions.Count > 0)
+        {
+            <a href="@category.Link" class="button @category.CssClass @(category.LaunchModal ? "launch-modal" : "")" data-toggle="popover" data-placement="top" data-trigger="click" data-title="@(!string.IsNullOrWhiteSpace(category.Link) ? category.DesktopText : "")" data-container="body">
+                <span class="click-through">
+                    <span class="@category.Icon" style="float: left;"></span>
+                    <span class="hidden-xs visible-sm visible-md visible-lg" style="float: left;">@category.DesktopText</span>
+                    <span class="visible-xs hidden-sm hidden-md hidden-lg" style="float: left;">@category.MobileText</span>
+                </span>
+            </a>
+        }
+        else
+        {
+            <a href="@category.Link" class="button @category.CssClass @(category.LaunchModal ? "launch-modal" : "")" title="@category.DesktopText" data-container="body">
+                <span class="click-through">
+                    <span class="@category.Icon" style="float: left;"></span>
+                </span>
+            </a>
+        }
     }
 
-    @foreach (var category in Model.Categories)
+    @foreach (var category in Model.Categories.Where(x => x.Actions.Count > 0))
     {
         <div id="popover-@category.CssClass" class="list-group" style="display: none;">
             <div class="popover-menu">
